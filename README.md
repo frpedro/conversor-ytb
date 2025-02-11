@@ -28,4 +28,4 @@ pip install pytubefix
 ```bash
 python oneConverter.py
 ```
-- Insira a URL do vídeo ou áudio do YouTube e clique no botão correspondente para baixar.
+- Insira a URL do vídeo ou áudio do YouTube e clique no botão correspondente para baixar. 
