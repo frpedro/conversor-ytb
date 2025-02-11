@@ -7,7 +7,7 @@ def baixarVideo():
     quality = yt.streams.get_highest_resolution() # Busca automáticamente a melhor qualidade disponível.
     print("Convertendo Vídeo... " + yt.title)
     quality.download() # Realiza o download.
-    print("Conversão feita com sucesso :)")
+    atualizarStatusFront("Conversão feita com sucesso!")
 
 def baixarAudio():
     a_url = entry_audio.get()
@@ -15,14 +15,18 @@ def baixarAudio():
     audio_stream = yt.streams.filter(only_audio=True).first() #Configura a busca apenas de áudio.
     print("Convertendo áudio... " + yt.title)
     audio_stream.download() # Realiza o download.
-    print("Conversão feita com sucesso :)")
+    atualizarStatusFront("Conversão feita com sucesso!")
+    
+# Função de atualização do status da conversão na interface.
+def atualizarStatusFront(mensagem):
+    label_status.config(text=mensagem)
 
 # Inicia a interface.
 root = tk.Tk()
 root.title("OneConverter")
 
 # Ajusta tamanho da janela.
-root.geometry("1200x500")
+root.geometry("1200x520")
 
 # Configura background da janela.
 root.configure(bg="#F2F2F7")
@@ -54,6 +58,10 @@ entry_audio.pack(pady=10)
 # Botão para baixar áudio
 btn_audio = tk.Button(root, text="Baixar Áudio", command=baixarAudio, bg="#FF3B30", fg="#FFFFFF", border="0", pady="10", width="15")
 btn_audio.pack(pady=15)
+
+# Atualiza o status da conversão na interface.
+label_status = tk.Label(root, text="", font=("Arial", 12), fg="#388E3C", bg="#F2F2F7")
+label_status.pack(pady=(20, 10))
 
 # Roda a interface
 root.mainloop()
