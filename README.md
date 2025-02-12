@@ -2,7 +2,7 @@
 
 **OneConverter** é uma aplicação Python que permite o download de vídeos e áudios do YouTube com a melhor qualidade disponível. O programa usa a biblioteca `pytubefix` para manipulação de streams e `tkinter` para criar uma interface gráfica simples e intuitiva.
 
-A conversão é realizada de forma extremamente rápida, com o download sendo concluído quase instantaneamente, <b>independentemente da duração do vídeo</b> . Os arquivos são salvos diretamente na pasta onde o Python foi executado.
+A conversão é significativamente mais rápida do que a de conversores online, com o download sendo finalizado quase instantaneamente, <b>independentemente da duração do vídeo</b>. Os arquivos são salvos diretamente na pasta onde o Python foi executado.
 
 ## Funcionalidades
 
