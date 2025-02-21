@@ -1,30 +1,30 @@
 from pytubefix import YouTube
 import tkinter as tk
 
-def baixarVideo():
+def baixar_video():
     try:
-        v_url = entry_video.get() # Pega URL
+        v_url = entry_video.get()  # Pega URL
         yt = YouTube(v_url)
-        quality = yt.streams.get_highest_resolution() # Busca automáticamente a melhor qualidade disponível.
+        qualidade = yt.streams.get_highest_resolution()  # Busca automaticamente a melhor qualidade disponível.
         print("Convertendo Vídeo... " + yt.title)
-        quality.download() # Realiza o download.
-        atualizarStatusFront("Conversão feita com sucesso!", "#388E3C")
+        qualidade.download()  # Realiza o download.
+        atualizar_status_front("Conversão feita com sucesso!", "#388E3C")
     except Exception as e:
-        atualizarStatusFront("URL inválida! Tente novamente", "red")
+        atualizar_status_front("URL inválida! Tente novamente", "red")
 
-def baixarAudio():
+def baixar_audio():
     try:
         a_url = entry_audio.get()
         yt = YouTube(a_url)
-        audio_stream = yt.streams.filter(only_audio=True).first() # Configura a busca apenas de áudio.
+        audio_stream = yt.streams.filter(only_audio=True).first()  # Configura a busca apenas de áudio.
         print("Convertendo áudio... " + yt.title)
-        audio_stream.download() # Realiza o download.
-        atualizarStatusFront("Conversão feita com sucesso!", "#388E3C")
+        audio_stream.download()  # Realiza o download.
+        atualizar_status_front("Conversão feita com sucesso!", "#388E3C")
     except Exception as e:
-        atualizarStatusFront("URL inválida! Tente novamente", "red")
-        
+        atualizar_status_front("URL inválida! Tente novamente", "red")
+
 # Função de atualização do status da conversão na interface.
-def atualizarStatusFront(mensagem, cor):
+def atualizar_status_front(mensagem, cor):
     label_status.config(text=mensagem, fg=cor)
 
 # Inicia a interface.
@@ -48,7 +48,7 @@ entry_video = tk.Entry(root, width=60, border="0")
 entry_video.pack(pady=10)
 
 # Botão para baixar vídeo.
-btn_video = tk.Button(root, text="Baixar Vídeo", command=baixarVideo, bg="#FF3B30", fg="#FFFFFF", border="0", pady="10", width="15")
+btn_video = tk.Button(root, text="Baixar Vídeo", command=baixar_video, bg="#FF3B30", fg="#FFFFFF", border="0", pady="10", width="15")
 btn_video.pack(pady=15)
 
 # Label para download de áudio.
@@ -60,7 +60,7 @@ entry_audio = tk.Entry(root, width=60, border="0")
 entry_audio.pack(pady=10)
 
 # Botão para baixar áudio
-btn_audio = tk.Button(root, text="Baixar Áudio", command=baixarAudio, bg="#FF3B30", fg="#FFFFFF", border="0", pady="10", width="15")
+btn_audio = tk.Button(root, text="Baixar Áudio", command=baixar_audio, bg="#FF3B30", fg="#FFFFFF", border="0", pady="10", width="15")
 btn_audio.pack(pady=15)
 
 # Atualiza o status da conversão na interface.
